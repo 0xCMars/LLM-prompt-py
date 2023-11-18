@@ -55,11 +55,11 @@ human_message_prompt = HumanMessagePromptTemplate.from_template(human_template)
 chat_prompt = ChatPromptTemplate.from_messages([system_message_prompt, human_message_prompt])
 chat_prompt.format_messages(input_language="English", output_language="French", text="I love programming.")
 
-# chain = LLMChain(
-#     llm=chat_model,
-#     prompt=chat_prompt,
-#     output_parser=CommaSeparatedListOutputParser()
-# )
+chain = LLMChain(
+    llm=chat_model,
+    prompt=chat_prompt,
+    output_parser=CommaSeparatedListOutputParser()
+)
 
-# result = chain.run("colors")
-# print(result)
+result = chain.run("colors")
+print(result)
